@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Skmarketing</title>
+  
+  <style>
+  
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color:  rgba(29, 1, 1, 0.697); 
+      color: #fff;
+      padding: 20px;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline-block; 
+      margin-right: 10px;
+      transition: transform 0.3s; 
+    }
+
+    nav ul li a {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 5px 10px; 
+    }
+
+    nav ul li:hover {
+      transform: translateY(-3px) rotateX(15deg); 
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .button {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .form-group {
+      margin-bottom: 10px;
+    }
+    
+  </style>
+  <script>
+    function loadPage(url) {
+      const contentContainer = document.getElementById('content');
+      const xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status === 200) {
+            contentContainer.innerHTML = xhr.responseText;
+          } else {
+            contentContainer.innerHTML = 'Error loading the page.';
+          }
+        }
+      };
+      xhr.open('GET', url, true);
+      xhr.send();
+    }
+    
+        function suc(){
+            alert("You've logged-in successfully");
+        }
+    
+  </script>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="loadPage('welcome.html')">Home</a></li>
+        <li><a href="#" onclick="loadPage('about.html')">About</a></li>
+        <li><a href="#" onclick="loadPage('services.html')">Services</a></li>
+        <li><a href="#" onclick="loadPage('contact.html')">Contact</a></li>
+        <li style="float: right;"><a href="#" onclick="loadPage('login.html')"><img src="images/login-logo.png" alt="Login" style="height: 32px; width: 32px; padding-bottom: 2px;" ></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div id="content">
+    <script>
+      loadPage('welcome_shubham.html');
+    </script>
+  </div>
+</body>
+</html>
